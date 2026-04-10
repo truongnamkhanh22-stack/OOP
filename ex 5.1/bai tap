@@ -1,0 +1,9 @@
+import time
+
+now = time.time()
+local_time = time.localtime(now)
+
+print("Giờ hiện tại:", local_time.tm_hour, ":", local_time.tm_min, ":", local_time.tm_sec)
+
+days = now // (24*3600)
+print("Số ngày từ epoch:", int(days))
