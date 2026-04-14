@@ -1,0 +1,26 @@
+import math
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def distance(self, other):
+        return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
+
+
+class Circle:
+    def __init__(self, center, radius):
+        self.center = center
+        self.radius = radius
+
+    def point_in_circle(self, point):
+        return self.center.distance(point) <= self.radius
+
+    def rect_in_circle(self, rect_points):
+        return all(self.point_in_circle(p) for p in rect_points)
+
+# test
+c = Circle(Point(0,0), 5)
+p = Point(3,4)
+
+print(c.point_in_circle(p))

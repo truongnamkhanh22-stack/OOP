@@ -1,0 +1,27 @@
+import math
+
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def display(self):
+        print(f"({self.x}, {self.y})")
+
+    def distance(self, other):
+        return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
+
+# A(3,4)
+A = Point(3, 4)
+A.display()
+
+# B nhập từ bàn phím
+x = int(input("Nhap x: "))
+y = int(input("Nhap y: "))
+B = Point(x, y)
+
+# C đối xứng B qua O
+C = Point(-B.x, -B.y)
+
+print("Khoảng cách B-O:", B.distance(Point(0,0)))
+print("Khoảng cách A-B:", A.distance(B))

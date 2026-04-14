@@ -1,0 +1,12 @@
+ds = []
+
+while True:
+    ten = input("Nhap ten (exit de thoat): ")
+    if ten == "exit":
+        break
+    vu_khi = input("Vu khi: ")
+    mau = input("Mau: ")
+    ds.append((ten, vu_khi, mau))
+
+for sn in ds:
+    print(sn)
