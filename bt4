@@ -1,0 +1,14 @@
+class Cho:
+    def __init__(self, ten, tuoi):
+        self.ten = ten
+        self.tuoi = tuoi
+
+class Oto:
+    def __init__(self, hang, gia):
+        self.hang = hang
+        self.gia = gia
+
+class TaiKhoan:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
