@@ -1,0 +1,74 @@
+class NhanVien:
+    def __init__(self):
+        self.ho_ten = ""
+
+    def nhap(self):
+        self.ho_ten = input("Nhập họ tên: ")
+
+    def xuat(self):
+        print(f"Họ tên: {self.ho_ten}")
+
+
+class CongTacVien(NhanVien):
+    def __init__(self):
+        super().__init__()
+        self.han_hd = 0
+        self.phu_cap = 0
+
+    def nhap(self):
+        super().nhap()
+        self.han_hd = int(input("Hạn hợp đồng: "))
+        self.phu_cap = float(input("Phụ cấp: "))
+
+    def xuat(self):
+        super().xuat()
+        print(f"Hạn HĐ: {self.han_hd}, Phụ cấp: {self.phu_cap}")
+
+
+class NhanVienChinhThuc(NhanVien):
+    def __init__(self):
+        super().__init__()
+        self.vi_tri = ""
+
+    def nhap(self):
+        super().nhap()
+        self.vi_tri = input("Vị trí: ")
+
+    def xuat(self):
+        super().xuat()
+        print(f"Vị trí: {self.vi_tri}")
+
+
+class TruongPhong(NhanVien):
+    def __init__(self):
+        super().__init__()
+        self.ngay_ql = ""
+        self.phu_cap_ql = 0
+
+    def nhap(self):
+        super().nhap()
+        self.ngay_ql = input("Ngày quản lý: ")
+        self.phu_cap_ql = float(input("Phụ cấp quản lý: "))
+
+    def xuat(self):
+        super().xuat()
+        print(f"Ngày QL: {self.ngay_ql}, Phụ cấp: {self.phu_cap_ql}")
+
+
+if __name__ == "__main__":
+    print("=== TEST NHÂN VIÊN ===")
+    print("1. Cộng tác viên\n2. Nhân viên chính thức\n3. Trưởng phòng")
+    
+    chon = int(input("Chọn: "))
+
+    if chon == 1:
+        nv = CongTacVien()
+    elif chon == 2:
+        nv = NhanVienChinhThuc()
+    else:
+        nv = TruongPhong()
+
+    nv.nhap()
+    
+    print("\n--- THÔNG TIN ---")
+    nv.xuat()

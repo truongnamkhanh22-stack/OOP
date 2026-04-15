@@ -1,0 +1,113 @@
+class CanBo:
+    def __init__(self):
+        self.ho_ten = ""
+
+    def nhap(self):
+        self.ho_ten = input("Nhập họ tên: ")
+
+    def xuat(self):
+        print(f"Họ tên: {self.ho_ten}")
+
+
+class CongNhan(CanBo):
+    def __init__(self):
+        super().__init__()
+        self.bac = 0
+
+    def nhap(self):
+        super().nhap()
+        self.bac = int(input("Bậc (1-10): "))
+
+    def xuat(self):
+        super().xuat()
+        print(f"Bậc: {self.bac}")
+
+
+class KySu(CanBo):
+    def __init__(self):
+        super().__init__()
+        self.nganh = ""
+
+    def nhap(self):
+        super().nhap()
+        self.nganh = input("Ngành đào tạo: ")
+
+    def xuat(self):
+        super().xuat()
+        print(f"Ngành: {self.nganh}")
+
+
+class NhanVienCB(CanBo):
+    def __init__(self):
+        super().__init__()
+        self.cong_viec = ""
+
+    def nhap(self):
+        super().nhap()
+        self.cong_viec = input("Công việc: ")
+
+    def xuat(self):
+        super().xuat()
+        print(f"Công việc: {self.cong_viec}")
+
+
+class QLCB:
+    def __init__(self):
+        self.ds = []
+
+    def them(self):
+        print("\n1. Công nhân\n2. Kỹ sư\n3. Nhân viên")
+        chon = int(input("Chọn: "))
+
+        if chon == 1:
+            cb = CongNhan()
+        elif chon == 2:
+            cb = KySu()
+        else:
+            cb = NhanVienCB()
+
+        cb.nhap()
+        self.ds.append(cb)
+
+    def hien_thi(self):
+        if not self.ds:
+            print("Danh sách rỗng!")
+            return
+        for cb in self.ds:
+            print("------")
+            cb.xuat()
+
+    def tim_kiem(self):
+        key = input("Nhập tên cần tìm: ")
+        found = False
+        for cb in self.ds:
+            if key.lower() in cb.ho_ten.lower():
+                cb.xuat()
+                found = True
+        if not found:
+            print("Không tìm thấy!")
+
+
+if __name__ == "__main__":
+    ql = QLCB()
+
+    while True:
+        print("\n===== MENU =====")
+        print("1. Thêm cán bộ")
+        print("2. Hiển thị danh sách")
+        print("3. Tìm kiếm")
+        print("4. Thoát")
+
+        chon = int(input("Chọn: "))
+
+        if chon == 1:
+            ql.them()
+        elif chon == 2:
+            ql.hien_thi()
+        elif chon == 3:
+            ql.tim_kiem()
+        elif chon == 4:
+            print("Thoát chương trình")
+            break
+        else:
+            print("Chọn sai!")

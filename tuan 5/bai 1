@@ -1,0 +1,36 @@
+class HangHoa:
+    def __init__(self, gia=0):
+        self.gia = gia
+
+    def nhap(self):
+        self.gia = float(input("Nhập giá: "))
+
+    def xuat(self):
+        print(f"Giá: {self.gia}")
+
+
+class HangDienMay(HangHoa):
+    def __init__(self):
+        super().__init__()
+        self.bao_hanh = 0
+        self.dien_ap = 0
+        self.cong_suat = 0
+
+    def nhap(self):
+        super().nhap()
+        self.bao_hanh = int(input("Bảo hành: "))
+        self.dien_ap = int(input("Điện áp: "))
+        self.cong_suat = int(input("Công suất: "))
+
+    def xuat(self):
+        super().xuat()
+        print(f"Bảo hành: {self.bao_hanh}, Điện áp: {self.dien_ap}, Công suất: {self.cong_suat}")
+
+
+
+if __name__ == "__main__":
+    print("=== TEST HÀNG ĐIỆN MÁY ===")
+    
+    a = HangDienMay()  # tạo object
+    a.nhap()           # nhập dữ liệu
+    a.xuat()           # in ra
